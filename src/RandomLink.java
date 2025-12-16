@@ -1,14 +1,14 @@
 package org.example;
 
 public class RandomLink {
-    private int from;
-    private int to;
-    private boolean isLadder; // true = ladder, false = snake
+    private final int from;
+    private final int to;
+    private final boolean ladder;
 
     public RandomLink(int from, int to, boolean isLadder) {
         this.from = from;
         this.to = to;
-        this.isLadder = isLadder;
+        this.ladder = isLadder;
     }
 
     public int getFrom() {
@@ -20,6 +20,11 @@ public class RandomLink {
     }
 
     public boolean isLadder() {
-        return isLadder;
+        return ladder;
+    }
+
+    @Override
+    public String toString() {
+        return (ladder ? "Ladder" : "Snake") + ": " + from + " -> " + to;
     }
 }
